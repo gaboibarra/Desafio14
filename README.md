@@ -81,6 +81,9 @@ El despliegue de ArgoCD se realizó en mi entorno de kubernetes que tengo desple
 
 ![image](https://github.com/user-attachments/assets/5f49f65c-6b97-4a5c-b12c-2db9f76c54d4)
 
+🎯 Asi quedo el repo clonado 
+
+![image](https://github.com/user-attachments/assets/0cec50d0-8491-4296-aaf3-a6f8d30de86d)
 
 
 
