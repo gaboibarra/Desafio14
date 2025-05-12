@@ -51,13 +51,13 @@ El despliegue de ArgoCD se realizó en mi entorno de kubernetes que tengo desple
 
 ![image](https://github.com/user-attachments/assets/019e992c-e44c-41ea-ae54-2885432f53ad)
 
-Se busca la contraseña inicial
+5️⃣ Se busca la contraseña inicial
 
 ![image](https://github.com/user-attachments/assets/24fa5459-85e4-45fd-b929-eb5cb11b9a57)
 
 ![image](https://github.com/user-attachments/assets/fefd583a-c863-4483-97c4-3ee5f74b4ba4)
 
-
+## Para la segunda parte del desafío voy a crear un repo nuevo para mantener el orden y en el voy a clonar el repo del profe donde está la app educacionit-app
 
 
 
