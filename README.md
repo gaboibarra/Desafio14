@@ -69,7 +69,18 @@ El despliegue de ArgoCD se realizó en mi entorno de kubernetes que tengo desple
 
 🚚 Copiar el contenido al nuevo repositorio
 
-![image](https://github.com/user-attachments/assets/87435013-d4d8-4657-9bce-ea37030c4400)
+![image](https://github.com/user-attachments/assets/2499e288-58d2-4eff-8347-b68f66a2158c)
+
+🌐 Subir el nuevo repositorio a GitHub
+
+![image](https://github.com/user-attachments/assets/67005ce0-ee96-4e70-9574-551b767bf513)
+
+![image](https://github.com/user-attachments/assets/1eb7480a-d7d6-4100-948b-01121df62630)
+
+![image](https://github.com/user-attachments/assets/ca54206d-6396-42f1-8d0c-e67224f3e0e4)
+
+![image](https://github.com/user-attachments/assets/5f49f65c-6b97-4a5c-b12c-2db9f76c54d4)
+
 
 
 
