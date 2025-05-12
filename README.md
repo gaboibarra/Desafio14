@@ -59,6 +59,19 @@ El despliegue de ArgoCD se realizó en mi entorno de kubernetes que tengo desple
 
 ❗ Para la segunda parte del desafío voy a crear un repo nuevo para mantener el orden y en el voy a clonar el repo del profe donde está la app educacionit-app
 
+![image](https://github.com/user-attachments/assets/a21a00ad-fa0d-487e-b461-3836efb762bb)
+
+## 🌱 Clonar el repositorio desde GitHub
+
+📁 Clonar el repositorio del profesor
+
+![image](https://github.com/user-attachments/assets/a2506a03-8861-4ebf-9fd8-95b022d558a7)
+
+🚚 Copiar el contenido al nuevo repositorio
+
+![image](https://github.com/user-attachments/assets/87435013-d4d8-4657-9bce-ea37030c4400)
+
+
 
 
 
