@@ -13,11 +13,19 @@ Generate a name that can be used for naming resources.
 {{- end -}}
 
 {{/*
-Generate labels for the application.
+Generate standard labels that are used for all resources.
 */}}
 {{- define "educacionit-app.labels" -}}
 app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
-helm.sh/chart: {{ include "educacionit-app.name" . }}-{{ .Chart.Version | replace "+" "_" }}
+helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
+
+{{/*
+Generate selector labels.
+*/}}
+{{- define "educacionit-app.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
