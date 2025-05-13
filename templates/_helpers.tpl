@@ -1,32 +1,27 @@
 {{/*
 Generate the fullname using the release name and the chart name.
 */}}
-{{- define "chart.fullname" -}}
+{{- define "educacionit-app.fullname" -}}
 {{- if .Values.fullnameOverride -}}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
-{{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- if .Release.Name -}}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
-{{- else -}}
-{{- $name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
+{{- printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 {{- end -}}
 
 {{/*
 Generate a name that can be used for naming resources.
 */}}
-{{- define "chart.name" -}}
-{{- default .Chart.Name .Values.nameOverride -}}
+{{- define "educacionit-app.name" -}}
+{{- .Chart.Name -}}
 {{- end -}}
 
 {{/*
 Generate standard labels that are used for all resources.
 */}}
-{{- define "chart.labels" -}}
-app.kubernetes.io/name: {{ include "chart.name" . }}
-helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+{{- define "educacionit-app.labels" -}}
+app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
+helm.sh/chart: {{ include "educacionit-app.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
@@ -34,17 +29,24 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Generate selector labels.
 */}}
-{{- define "chart.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "chart.name" . }}
+{{- define "educacionit-app.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end -}}
+
+{{/*
+Generate the chart name and version as used by the chart label.
+*/}}
+{{- define "educacionit-app.chart" -}}
+{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
 {{- end -}}
 
 {{/*
 Generate the name of the service account to use.
 */}}
-{{- define "chart.serviceAccountName" -}}
+{{- define "educacionit-app.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create -}}
-{{- default (include "chart.fullname" .) .Values.serviceAccount.name -}}
+{{- default (include "educacionit-app.fullname" .) .Values.serviceAccount.name -}}
 {{- else -}}
 {{- .Values.serviceAccount.name -}}
 {{- end -}}
