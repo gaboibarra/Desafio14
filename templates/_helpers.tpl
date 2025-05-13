@@ -1,15 +1,19 @@
 {{- define "educacionit-app.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
+{{- if .Values.nameOverride }}
+{{ .Values.nameOverride }}
+{{- else }}
+{{ .Chart.Name }}
+{{- end }}
+{{- end }}
 
 {{- define "educacionit-app.fullname" -}}
-{{- if .Values.fullnameOverride -}}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
-{{- else -}}
-{{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-{{- end -}}
+{{- if .Values.fullnameOverride }}
+{{ .Values.fullnameOverride }}
+{{- else }}
+{{- $name := default .Chart.Name .Values.nameOverride }}
+{{ include "educacionit-app.name" . }}-{{ $name }}
+{{- end }}
+{{- end }}
 
 {{- define "educacionit-app.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" -}}
@@ -34,3 +38,8 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/version: {{ .Chart.AppVersion }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
+
+{{- define "educacionit-app.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
