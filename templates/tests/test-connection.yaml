@@ -8,5 +8,5 @@ spec:
   containers:
     - name: curl
       image: curlimages/curl
-      command: ['curl', '-m', '5', 'http://educacionit-app-chart:3000']
+      command: ['curl', '-m', '5', 'http://educacionit-app-chart.default.svc.cluster.local:3000']
   restartPolicy: Never
