@@ -1,36 +1,35 @@
-{{/*
-Expand the name of the chart.
-*/}}
+{{/* Nombre de la aplicación */}}
 {{- define "educacionit-app.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
+{{- default .Chart.Name .Values.nameOverride -}}
+{{- end }}
 
-{{/*
-Create a fullname using the release name and the chart name.
-*/}}
+{{/* Nombre completo (fullname) de la aplicación */}}
 {{- define "educacionit-app.fullname" -}}
 {{- if .Values.fullnameOverride -}}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
+{{- .Values.fullnameOverride -}}
 {{- else -}}
-{{- printf "%s-%s" .Release.Name (include "educacionit-app.name" .) | trunc 63 | trimSuffix "-" -}}
+{{- $name := include "educacionit-app.name" . -}}
+{{- if .Values.namespaceOverride -}}
+{{- printf "%s-%s" .Values.namespaceOverride $name -}}
+{{- else -}}
+{{- printf "%s-%s" .Release.Name $name -}}
 {{- end -}}
 {{- end -}}
+{{- end }}
 
-{{/*
-Common labels
-*/}}
-{{- define "educacionit-app.labels" -}}
-helm.sh/chart: {{ include "educacionit-app.name" . }}-{{ .Chart.Version | replace "+" "_" }}
+{{/* Etiquetas de selector (para selectors de Kubernetes) */}}
+{{- define "educacionit-app.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/version: {{ .Chart.AppVersion }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- end -}}
+{{- end }}
 
-{{/*
-Selector labels
-*/}}
-{{- define "educacionit-app.selectorLabels" -}}
+{{/* Etiquetas estándar de la aplicación (para metadata) */}}
+{{- define "educacionit-app.labels" -}}
 app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-{{- end -}}
+app.kubernetes.io/version: {{ .Chart.AppVersion }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+{{- end }}
