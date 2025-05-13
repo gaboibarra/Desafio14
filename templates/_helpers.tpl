@@ -38,3 +38,10 @@ Generate selector labels.
 app.kubernetes.io/name: {{ include "educacionit-app.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
+
+{{/*
+Generate the chart name and version as used by the chart label.
+*/}}
+{{- define "educacionit-app.chart" -}}
+{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+{{- end -}}
