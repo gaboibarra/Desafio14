@@ -85,7 +85,7 @@ El despliegue de ArgoCD se realizó en mi entorno de kubernetes que tengo desple
 
 ![image](https://github.com/user-attachments/assets/0cec50d0-8491-4296-aaf3-a6f8d30de86d)
 
-
+## Para el momento de la entrega no se pudo hacer los dos pasos finales del desafio ya que se me presentaron fallas las cuales no pude resolver a tiempo 
 
 
 
